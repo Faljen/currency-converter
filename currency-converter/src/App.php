@@ -14,6 +14,7 @@ class App
 
     public function updateCurrencies()
     {
+        $this->database->clearCurrencies();
         $currencies = $this->nbpApi->getCurrencyData();
 
         // Dodajemy PLN do tablicy

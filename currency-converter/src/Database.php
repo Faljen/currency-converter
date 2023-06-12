@@ -27,6 +27,14 @@ class Database
         return $this->conn;
     }
 
+    public function clearCurrencies()
+    {
+        $this->conn = $this->dbConnection();
+        $query = "DELETE FROM currencies";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+    }
+
     public function saveCurrencies($currencies)
     {
         $this->conn = $this->dbConnection();
